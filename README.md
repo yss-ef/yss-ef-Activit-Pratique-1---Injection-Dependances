@@ -1,28 +1,43 @@
+# Activité Pratique N°1 : Injection de Dépendances et Couplage Faible
 
-# Activité Pratique 1 : Injection de Dépendances
-## Introduction
-Ce dépôt GitHub contient le travail réalisé dans le cadre de l'activité pratique 1 sur l'Injection de Dépendances. L'objectif est de mettre en œuvre différents mécanismes d'injection de dépendances, en s'appuyant sur l'exemple traité lors des séances de cours et les ressources vidéo fournies.
-
-Le projet explore les concepts de couplage faible et d'injection de dépendances à travers des implémentations manuelles (statique et dynamique) et l'utilisation du framework Spring (versions XML et annotations).
-
-### Consignes du TP
-Création d'un dépôt GitHub.
-
-- Dépôt du lien du repository comme seul livrable.
-
-- Un commit et un push toutes les ~30 minutes.
-
-- Le rapport est le fichier README.md du repository.
-
-- Un dernier commit à la fin de la séance.
-
-- Continuer à compléter l'activité pratique après la séance.
-
-### Ressource Vidéo
-Le travail est basé sur la ressource vidéo suivante :
-
-https://www.youtube.com/watch?v=vOLqabN-n2k
-
-
+Ce dépôt contient le travail réalisé pour l'**activité pratique N°1**.  
+L'objectif est de mettre en œuvre le principe d'**Inversion de Contrôle (IoC)** à travers l'**Injection de Dépendances** pour créer des applications avec un **couplage faible**, les rendant ainsi plus flexibles et maintenables.
 
 ---
+
+## 🎯 Objectifs du TP
+
+- Comprendre la différence entre **couplage fort** et **couplage faible**.  
+- Mettre en place l'**Injection de Dépendances (DI)** de différentes manières :  
+  - Par **instanciation statique**  
+  - Par **instanciation dynamique (réflexion Java)**  
+  - Par un **framework IoC (Spring)**  
+
+---
+
+## 📂 Structure du Projet
+
+- **dao**  
+  - `IDao` : Interface définissant la méthode `getData()`  
+  - `DaoImpl` : Implémentation concrète simulant la récupération de données  
+
+- **metier**  
+  - `IMetier` : Interface définissant la méthode `calcul()`  
+  - `MetierImpl` : Implémentation qui dépend de `IDao` mais en couplage faible (via injection)  
+
+- **présentations (tests)**  
+  - `Presentation1` : Injection par instanciation **statique**  
+  - `Presentation2` : Injection par instanciation **dynamique** (fichier config + `Class.forName`)  
+  - `PresentationSpringXML` : (prévu, pas encore implémenté)  
+  - `PresentationSpringAnnotations` : (prévu, pas encore implémenté)  
+
+---
+
+## 🛠️ Étapes Réalisées
+
+### 1. Création de l'interface `IDao`
+```java
+public interface IDao {
+    double getData();
+}
+``
