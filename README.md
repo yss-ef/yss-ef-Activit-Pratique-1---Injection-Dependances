@@ -40,4 +40,7 @@ L'objectif est de mettre en œuvre le principe d'**Inversion de Contrôle (IoC)*
 public interface IDao {
     double getData();
 }
-``
+```
+
+### 2.
+
